@@ -77,3 +77,7 @@ git tag $next_tag
 
 echo "4. Pushing new tag"
 git push origin $next_tag
+
+echo "5. Done"
+VERSION = $next_tag
+echo "-------------------------------------"
