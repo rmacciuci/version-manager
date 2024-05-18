@@ -70,6 +70,8 @@ fi
 next_tag="v$major.$minor.$patch"
 echo "New tag: $next_tag"
 
+git pull
+
 echo "3. Creating new tag"
 git tag $next_tag
 
