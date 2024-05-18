@@ -4,6 +4,10 @@ description: 'Create and push tag to repository'
 runs:
   using: 'docker'
   image: 'Dockerfile'
+  args:
+    - '--minor=${{ inputs.minor }}'
+    - '--major=${{ inputs.major }}'
+    - '--patch=${{ inputs.patch }}'
 
 branding:
   icon: 'tag'
