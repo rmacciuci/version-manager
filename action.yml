@@ -1,0 +1,24 @@
+name: 'Create and push tag'
+description: 'Create and push tag to repository'
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+
+branding:
+  icon: 'tag'
+  color: 'blue'
+
+inputs:
+  minor:
+    description: 'Just send it if you want to increment the minor version'
+    required: false
+    default: 'false'
+  major:
+    description: 'Just send it if you want to increment the major version'
+    required: false
+    default: 'false'
+  patch:
+    description: 'Just send it if you want to increment the patch version'
+    required: false
+    default: 'false'
