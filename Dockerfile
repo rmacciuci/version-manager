@@ -7,6 +7,8 @@ LABEL "com.github.actions.color"="blue"
 
 LABEL "mantainer" = "Ramiro Macciuci <ramimacciuci@gmail.com>"
 
+RUN apk add --no-cache git bash
+
 COPY entrypoint.sh /entrypoint.sh
 
 ENTRYPOINT ["sh", "/entrypoint.sh"]
