@@ -35,7 +35,7 @@ git_setup
 echo "2. Updating repository tags"
 git fetch origin --tags --quiet
 
-last_tag=$(git describe --tags `git rev-list --tags --max-count=1`)
+last_tag=$(git tag --sort=-version:refname | head -n 1)
 echo "Last tag: $last_tag"
 
 version=$(echo $last_tag | sed 's/v//')
