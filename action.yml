@@ -1,5 +1,5 @@
 name: 'Create and push tag'
-description: 'Create and push tag to repository'
+description: 'Create and push the next semver tag (optionally with a prefix for monorepos)'
 
 runs:
   using: 'docker'
@@ -8,6 +8,7 @@ runs:
     - '--minor=${{ inputs.minor }}'
     - '--major=${{ inputs.major }}'
     - '--patch=${{ inputs.patch }}'
+    - '--prefix=${{ inputs.prefix }}'
 
 branding:
   icon: 'tag'
@@ -26,3 +27,13 @@ inputs:
     description: 'Just send it if you want to increment the patch version'
     required: false
     default: 'false'
+  prefix:
+    description: 'Tag prefix for monorepos, e.g. "api/" creates api/v1.2.3. Only tags with this prefix are considered. Empty = plain vX.Y.Z tags.'
+    required: false
+    default: ''
+
+outputs:
+  tag:
+    description: 'The created tag, including the prefix (e.g. api/v1.2.3). Also written to ./VERSION.'
+  version:
+    description: 'The version without the prefix (e.g. v1.2.3), usable as a Docker image tag.'
